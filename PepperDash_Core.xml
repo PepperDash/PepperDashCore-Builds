@@ -716,6 +716,26 @@
             Set only when the disconnect method is called.
             </summary>
         </member>
+        <member name="M:PepperDash.Core.GenericTcpIpClient.#ctor(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="address"></param>
+            <param name="port"></param>
+            <param name="bufferSize"></param>
+        </member>
+        <member name="M:PepperDash.Core.GenericTcpIpClient.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:PepperDash.Core.GenericTcpIpClient.#ctor">
+            <summary>
+            Default constructor for S+
+            </summary>
+        </member>
         <member name="M:PepperDash.Core.GenericTcpIpClient.Initialize(System.String)">
             <summary>
             Just to help S+ set the key
