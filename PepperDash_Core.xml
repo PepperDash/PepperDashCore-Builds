@@ -903,6 +903,112 @@
             
             </summary>
         </member>
+        <member name="T:PepperDash.Core.SystemInfo.SystemInfoToSimpl">
+            <summary>
+            System Info class
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.SystemInfoToSimpl.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.SystemInfoToSimpl.GetProcessorInfo">
+            <summary>
+            Gets the current processor info
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.SystemInfoToSimpl.GetEthernetInfo">
+            <summary>
+            Gets the current ethernet info
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.SystemInfoToSimpl.GetControlSubnetInfo">
+            <summary>
+            Gets the current control subnet info
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.SystemInfoToSimpl.GetProgramInfoByIndex(System.UInt16)">
+            <summary>
+            Gets the program info by index
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.SystemInfoToSimpl.RefreshProcessorUptime">
+            <summary>
+            Gets the processor uptime and passes it to S+
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.SystemInfoToSimpl.RefreshProgramUptimeByIndex(System.Int32)">
+            <summary>
+            Gets the program uptime, by index, and passes it to S+
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.SystemInfoToSimpl.SendConsoleCommand(System.String)">
+            <summary>
+            Sends command to console, passes response back using string change event
+            </summary>
+            <param name="cmd"></param>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.SystemInfoToSimpl.ParseConsoleResponse(System.String,System.String,System.String,System.String)">
+            <summary>
+            private method to parse console messages
+            </summary>
+            <param name="response"></param>
+            <param name="line"></param>
+            <param name="start"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.SystemInfoToSimpl.OnBoolChange(System.Boolean,System.UInt16,System.UInt16)">
+            <summary>
+            Protected boolean change event handler
+            </summary>
+            <param name="state"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.SystemInfoToSimpl.OnStringChange(System.String,System.UInt16,System.UInt16)">
+            <summary>
+            Protected string change event handler
+            </summary>
+            <param name="value"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.SystemInfoToSimpl.OnProcessorChange(PepperDash.Core.SystemInfo.ProcessorInfo,System.UInt16,System.UInt16)">
+            <summary>
+            Protected processor config change event handler
+            </summary>
+            <param name="processor"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.SystemInfoToSimpl.OnEthernetInfoChange(PepperDash.Core.SystemInfo.EthernetInfo,System.UInt16,System.UInt16)">
+            <summary>
+            Ethernet change event handler
+            </summary>
+            <param name="ethernet"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.SystemInfoToSimpl.OnControlSubnetInfoChange(PepperDash.Core.SystemInfo.ControlSubnetInfo,System.UInt16,System.UInt16)">
+            <summary>
+            Control Subnet change event handler
+            </summary>
+            <param name="ethernet"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.SystemInfoToSimpl.OnProgramChange(PepperDash.Core.SystemInfo.ProgramInfo,System.UInt16,System.UInt16)">
+            <summary>
+            Program change event handler
+            </summary>
+            <param name="program"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
         <member name="F:PepperDash.Core.JsonToSimpl.JsonToSimplMaster.UnsavedValues">
             Privates *
         </member>
@@ -1043,6 +1149,99 @@
             After save operation on JSON master happens, send it to server
             </summary>
             <param name="json"></param>
+        </member>
+        <member name="T:PepperDash.Core.SystemInfo.SystemInfoConstants">
+            <summary>
+            Constants 
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.SystemInfo.ProcessorChangeEventArgs">
+            <summary>
+            Processor Change Event Args Class
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.ProcessorChangeEventArgs.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.ProcessorChangeEventArgs.#ctor(PepperDash.Core.SystemInfo.ProcessorInfo,System.UInt16)">
+            <summary>
+            Constructor overload
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.ProcessorChangeEventArgs.#ctor(PepperDash.Core.SystemInfo.ProcessorInfo,System.UInt16,System.UInt16)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.SystemInfo.EthernetChangeEventArgs">
+            <summary>
+            Ethernet Change Event Args Class
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.EthernetChangeEventArgs.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.EthernetChangeEventArgs.#ctor(PepperDash.Core.SystemInfo.EthernetInfo,System.UInt16)">
+            <summary>
+            Constructor overload
+            </summary>
+            <param name="Ethernet"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.EthernetChangeEventArgs.#ctor(PepperDash.Core.SystemInfo.EthernetInfo,System.UInt16,System.UInt16)">
+            <summary>
+            Constructor overload
+            </summary>
+            <param name="Ethernet"></param>
+            <param name="type"></param>
+        </member>
+        <member name="T:PepperDash.Core.SystemInfo.ControlSubnetChangeEventArgs">
+            <summary>
+            Control Subnet Chage Event Args Class
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.ControlSubnetChangeEventArgs.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.ControlSubnetChangeEventArgs.#ctor(PepperDash.Core.SystemInfo.ControlSubnetInfo,System.UInt16)">
+            <summary>
+            Constructor overload
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.ControlSubnetChangeEventArgs.#ctor(PepperDash.Core.SystemInfo.ControlSubnetInfo,System.UInt16,System.UInt16)">
+            <summary>
+            Constructor overload
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.SystemInfo.ProgramChangeEventArgs">
+            <summary>
+            Program Change Event Args Class
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.ProgramChangeEventArgs.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.ProgramChangeEventArgs.#ctor(PepperDash.Core.SystemInfo.ProgramInfo,System.UInt16)">
+            <summary>
+            Constructor overload
+            </summary>
+            <param name="Program"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.ProgramChangeEventArgs.#ctor(PepperDash.Core.SystemInfo.ProgramInfo,System.UInt16,System.UInt16)">
+            <summary>
+            Constructor overload
+            </summary>
+            <param name="Program"></param>
+            <param name="type"></param>
         </member>
         <member name="F:PepperDash.Core.GenericTcpIpServer.ServerCCSection">
             <summary>
@@ -1305,6 +1504,46 @@
         <member name="P:PepperDash.Core.GenericTcpIpServer.ServerStopped">
             <summary>
             Private flag to note that the server has stopped intentionally
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.SystemInfo.ProcessorInfo">
+            <summary>
+            Processor info class
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.ProcessorInfo.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.SystemInfo.EthernetInfo">
+            <summary>
+            Ethernet info class
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.EthernetInfo.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.SystemInfo.ControlSubnetInfo">
+            <summary>
+            Control subnet info class
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.ControlSubnetInfo.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.SystemInfo.ProgramInfo">
+            <summary>
+            Program info class
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.SystemInfo.ProgramInfo.#ctor">
+            <summary>
+            Constructor
             </summary>
         </member>
         <member name="F:PepperDash.Core.GenericSecureTcpIpClient_ForServer.ConnectionHasHungCallback">
@@ -1575,11 +1814,6 @@
             Gets a master by its key.  Case-insensitive
             </summary>
         </member>
-        <member name="T:PepperDash.Core.JsonToSimpl.JsonToSimplConstants">
-            <summary>
-            Constants for Simpl modules
-            </summary>
-        </member>
         <member name="T:PepperDash.Core.NetworkComm">
             <summary>
             Not in use
@@ -1751,6 +1985,338 @@
             This is added to the end of all paths
             </summary>
         </member>
+        <member name="T:PepperDash.Core.JsonToSimpl.JsonToSimplConstants">
+            <summary>
+            Constants for Simpl modules
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.JsonToSimpl.SPlusValuesDelegate">
+            <summary>
+            S+ values delegate
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.JsonToSimpl.SPlusValueWrapper">
+            <summary>
+            S+ values wrapper
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.JsonToSimpl.SPlusType">
+            <summary>
+            S+ types enum
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.JsonStandardObjects.ComParamsConfig">
+            <summary>
+            Device communication parameter class
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.JsonStandardObjects.ComParamsConfig.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.JsonStandardObjects.TcpSshPropertiesConfig">
+            <summary>
+            Device TCP/SSH properties class
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.JsonStandardObjects.TcpSshPropertiesConfig.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.JsonStandardObjects.ControlConfig">
+            <summary>
+            Device control class
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.JsonStandardObjects.ControlConfig.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.JsonStandardObjects.PropertiesConfig">
+            <summary>
+            Device properties class
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.JsonStandardObjects.PropertiesConfig.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.JsonStandardObjects.RootObject">
+            <summary>
+            Root device class
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.JsonStandardObjects.JsonStandardDeviceConstants">
+            <summary>
+            Constants for simpl modules
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.JsonStandardObjects.JsonStandardDeviceConstants.JsonObjectEvaluated">
+            <summary>
+            Json object evaluated constant
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.JsonStandardObjects.JsonStandardDeviceConstants.JsonObjectChanged">
+            <summary>
+            Json object changed constant
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.JsonStandardObjects.DeviceChangeEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.JsonStandardObjects.DeviceChangeEventArgs.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.JsonStandardObjects.DeviceChangeEventArgs.#ctor(PepperDash.Core.JsonStandardObjects.DeviceConfig,System.UInt16)">
+            <summary>
+            Constructor overload
+            </summary>
+            <param name="device"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.JsonStandardObjects.DeviceChangeEventArgs.#ctor(PepperDash.Core.JsonStandardObjects.DeviceConfig,System.UInt16,System.UInt16)">
+            <summary>
+            Constructor overload
+            </summary>
+            <param name="device"></param>
+            <param name="type"></param>
+            <param name="index"></param>
+        </member>
+        <member name="P:PepperDash.Core.JsonStandardObjects.DeviceChangeEventArgs.Device">
+            <summary>
+            Device change event args object
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.JsonStandardObjects.DeviceChangeEventArgs.Type">
+            <summary>
+            Device change event args type
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.JsonStandardObjects.DeviceChangeEventArgs.Index">
+            <summary>
+            Device change event args index
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulClient">
+            <summary>
+            Generic RESTful communication class
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulClient.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulClient.SubmitRequest(System.String,System.UInt16,System.UInt16,System.String,System.String,System.String)">
+            <summary>
+            Generic RESTful submit request
+            </summary>
+            <param name="url"></param>
+            <param name="port"></param>
+            <param name="requestType"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+        </member>
+        <member name="M:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulClient.SubmitRequestHttp(System.String,System.UInt16,System.UInt16,System.String,System.String,System.String)">
+            <summary>
+            Private HTTP submit request
+            </summary>
+            <param name="url"></param>
+            <param name="port"></param>
+            <param name="requestType"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+        </member>
+        <member name="M:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulClient.SubmitRequestHttps(System.String,System.UInt16,System.UInt16,System.String,System.String,System.String)">
+            <summary>
+            Private HTTPS submit request
+            </summary>
+            <param name="url"></param>
+            <param name="port"></param>
+            <param name="requestType"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+        </member>
+        <member name="M:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulClient.EncodeBase64(System.String,System.String)">
+            <summary>
+            Private method to encode username and password to Base64 string
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <returns>authorization</returns>
+        </member>
+        <member name="M:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulClient.OnBoolChange(System.Boolean,System.UInt16,System.UInt16)">
+            <summary>
+            Protected method to handle boolean change events
+            </summary>
+            <param name="state"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulClient.OnUshrtChange(System.UInt16,System.UInt16,System.UInt16)">
+            <summary>
+            Protected mehtod to handle ushort change events
+            </summary>
+            <param name="value"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulClient.OnStringChange(System.String,System.UInt16,System.UInt16)">
+            <summary>
+            Protected method to handle string change events
+            </summary>
+            <param name="value"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="E:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulClient.BoolChange">
+            <summary>
+            Boolean event handler
+            </summary>
+        </member>
+        <member name="E:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulClient.UshrtChange">
+            <summary>
+            Ushort event handler
+            </summary>
+        </member>
+        <member name="E:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulClient.StringChange">
+            <summary>
+            String event handler
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.BoolChangeEventArgs">
+            <summary>
+            Bool change event args
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.BoolChangeEventArgs.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.BoolChangeEventArgs.#ctor(System.Boolean,System.UInt16)">
+            <summary>
+            Constructor overload
+            </summary>
+            <param name="state"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.BoolChangeEventArgs.#ctor(System.Boolean,System.UInt16,System.UInt16)">
+            <summary>
+            Constructor overload
+            </summary>
+            <param name="state"></param>
+            <param name="type"></param>
+            <param name="index"></param>
+        </member>
+        <member name="P:PepperDash.Core.BoolChangeEventArgs.State">
+            <summary>
+            Boolean state property
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.BoolChangeEventArgs.IntValue">
+            <summary>
+            Boolean ushort value property
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.BoolChangeEventArgs.Type">
+            <summary>
+            Boolean change event args type
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.BoolChangeEventArgs.Index">
+            <summary>
+            Boolean change event args index
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.UshrtChangeEventArgs">
+            <summary>
+            Ushort change event args
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.UshrtChangeEventArgs.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.UshrtChangeEventArgs.#ctor(System.UInt16,System.UInt16)">
+            <summary>
+            Constructor overload
+            </summary>
+            <param name="intValue"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.UshrtChangeEventArgs.#ctor(System.UInt16,System.UInt16,System.UInt16)">
+            <summary>
+            Constructor overload
+            </summary>
+            <param name="intValue"></param>
+            <param name="type"></param>
+            <param name="index"></param>
+        </member>
+        <member name="P:PepperDash.Core.UshrtChangeEventArgs.IntValue">
+            <summary>
+            Ushort change event args integer value
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.UshrtChangeEventArgs.Type">
+            <summary>
+            Ushort change event args type
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.UshrtChangeEventArgs.Index">
+            <summary>
+            Ushort change event args index
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.StringChangeEventArgs">
+            <summary>
+            String change event args
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.StringChangeEventArgs.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.StringChangeEventArgs.#ctor(System.String,System.UInt16)">
+            <summary>
+            Constructor overload
+            </summary>
+            <param name="stringValue"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.StringChangeEventArgs.#ctor(System.String,System.UInt16,System.UInt16)">
+            <summary>
+            Constructor overload
+            </summary>
+            <param name="stringValue"></param>
+            <param name="type"></param>
+            <param name="index"></param>
+        </member>
+        <member name="P:PepperDash.Core.StringChangeEventArgs.StringValue">
+            <summary>
+            String change event args value
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.StringChangeEventArgs.Type">
+            <summary>
+            String change event args type
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.StringChangeEventArgs.Index">
+            <summary>
+            string change event args index
+            </summary>
+        </member>
         <member name="T:PepperDash.Core.eGenericCommMethodStatusChangeType">
             <summary>
             
@@ -1827,6 +2393,95 @@
             </summary>
             <param name="contextKey"></param>
             <returns></returns>
+        </member>
+        <member name="T:PepperDash.Core.JsonStandardObjects.DeviceConfig">
+            <summary>
+            Device class
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.JsonStandardObjects.DeviceConfig.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.JsonStandardObjects.DeviceConfig.Initialize(System.String,System.String)">
+            <summary>
+            Initialize method
+            </summary>
+            <param name="uniqueID"></param>
+            <param name="deviceKey"></param>
+        </member>
+        <member name="M:PepperDash.Core.JsonStandardObjects.DeviceConfig.OnBoolChange(System.Boolean,System.UInt16,System.UInt16)">
+            <summary>
+            BoolChange event handler helper
+            </summary>
+            <param name="state"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.JsonStandardObjects.DeviceConfig.OnUshrtChange(System.UInt16,System.UInt16,System.UInt16)">
+            <summary>
+            UshrtChange event handler helper
+            </summary>
+            <param name="state"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.JsonStandardObjects.DeviceConfig.OnStringChange(System.String,System.UInt16,System.UInt16)">
+            <summary>
+            StringChange event handler helper
+            </summary>
+            <param name="value"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.JsonStandardObjects.DeviceConfig.OnObjectChange(PepperDash.Core.JsonStandardObjects.DeviceConfig,System.UInt16,System.UInt16)">
+            <summary>
+            ObjectChange event handler helper
+            </summary>
+            <param name="device"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="P:PepperDash.Core.JsonStandardObjects.DeviceConfig.key">
+            <summary>
+            JSON config key property
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.JsonStandardObjects.DeviceConfig.name">
+            <summary>
+            JSON config name property
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.JsonStandardObjects.DeviceConfig.type">
+            <summary>
+            JSON config type property
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.JsonStandardObjects.DeviceConfig.properties">
+            <summary>
+            JSON config properties 
+            </summary>
+        </member>
+        <member name="E:PepperDash.Core.JsonStandardObjects.DeviceConfig.BoolChange">
+            <summary>
+            Bool change event handler
+            </summary>
+        </member>
+        <member name="E:PepperDash.Core.JsonStandardObjects.DeviceConfig.UshrtChange">
+            <summary>
+            Ushort change event handler
+            </summary>
+        </member>
+        <member name="E:PepperDash.Core.JsonStandardObjects.DeviceConfig.StringChange">
+            <summary>
+            String change event handler
+            </summary>
+        </member>
+        <member name="E:PepperDash.Core.JsonStandardObjects.DeviceConfig.DeviceChange">
+            <summary>
+            Object change event handler
+            </summary>
         </member>
         <member name="T:PepperDash.Core.LineReceivedHandler">
             <summary>
@@ -2413,6 +3068,41 @@
         <member name="T:PepperDash.Core.WebApi.Presets.UserAndRoomMessage">
             <summary>
             
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulConstants">
+            <summary>
+            Constants
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulConstants.BoolValueChange">
+            <summary>
+            Generic boolean change
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulConstants.UshrtValueChange">
+            <summary>
+            Generic Ushort change
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulConstants.ResponseCodeChange">
+            <summary>
+            Response Code Ushort change
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulConstants.StringValueChange">
+            <summary>
+            Generic String chagne 
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulConstants.ResponseStringChange">
+            <summary>
+            Response string change
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.GenericRESTfulCommunications.GenericRESTfulConstants.ErrorStringChange">
+            <summary>
+            Error string change
             </summary>
         </member>
         <member name="T:PepperDash.Core.eControlMethod">
