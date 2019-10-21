@@ -711,6 +711,166 @@
             Band aid delegate for choked server
             </summary>
         </member>
+        <member name="F:PepperDash.Core.PasswordManagement.PasswordManager.Passwords">
+            <summary>
+            Public dictionary of known passwords
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.PasswordManagement.PasswordManager._passwords">
+            <summary>
+            Private dictionary, used when passwords are updated
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.PasswordManagement.PasswordManager.PasswordTimer">
+            <summary>
+            Timer used to wait until password changes have stopped before updating the dictionary
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.PasswordManagement.PasswordManager.PasswordTimerElapsedMs">
+            <summary>
+            Timer length
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordManager.Initialize">
+            <summary>
+            Initialize password manager
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordManager.UpdatePassword(System.UInt16,System.String)">
+            <summary>
+            Updates password stored in the dictonary
+            </summary>
+            <param name="key"></param>
+            <param name="password"></param>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordManager.PasswordTimerElapsed">
+            <summary>
+            CTimer callback function
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordManager.PasswordTimerMs(System.UInt16)">
+            <summary>
+            Method to change the default timer value, (default 5000ms/5s)
+            </summary>
+            <param name="time"></param>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordManager.ListPasswords">
+            <summary>
+            Helper method for debugging to see what passwords are in the lists
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordManager.OnBoolChange(System.Boolean,System.UInt16,System.UInt16)">
+            <summary>
+            Protected boolean change event handler
+            </summary>
+            <param name="state"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordManager.OnUshrtChange(System.UInt16,System.UInt16,System.UInt16)">
+            <summary>
+            Protected ushort change event handler
+            </summary>
+            <param name="state"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordManager.OnStringChange(System.String,System.UInt16,System.UInt16)">
+            <summary>
+            Protected string change event handler
+            </summary>
+            <param name="value"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordManager.OnPasswordChange(System.String,System.UInt16,System.UInt16)">
+            <summary>
+            Protected password change event handler
+            </summary>
+            <param name="value"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="E:PepperDash.Core.PasswordManagement.PasswordManager.BoolChange">
+            <summary>
+            Boolean event 
+            </summary>
+        </member>
+        <member name="E:PepperDash.Core.PasswordManagement.PasswordManager.UshrtChange">
+            <summary>
+            Ushort event
+            </summary>
+        </member>
+        <member name="E:PepperDash.Core.PasswordManagement.PasswordManager.StringChange">
+            <summary>
+            String event
+            </summary>
+        </member>
+        <member name="E:PepperDash.Core.PasswordManagement.PasswordManager.PasswordChange">
+            <summary>
+            Event to notify clients of an updated password at the specified index (uint)
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.PasswordManagement.PasswordManagementConstants">
+            <summary>
+            Constants
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.PasswordManagement.PasswordManagementConstants.BoolValueChange">
+            <summary>
+            Generic boolean value change constant
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.PasswordManagement.PasswordManagementConstants.PasswordInitializedChange">
+            <summary>
+            Evaluated boolean change constant
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.PasswordManagement.PasswordManagementConstants.PasswordUpdateBusyChange">
+            <summary>
+            Update busy change const
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.PasswordManagement.PasswordManagementConstants.PasswordValidationChange">
+            <summary>
+            Password is valid change constant
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.PasswordManagement.PasswordManagementConstants.PasswordLedFeedbackChange">
+            <summary>
+            Password LED change constant
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.PasswordManagement.PasswordManagementConstants.UshrtValueChange">
+            <summary>
+            Generic ushort value change constant
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.PasswordManagement.PasswordManagementConstants.PasswordManagerCountChange">
+            <summary>
+            Password count
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.PasswordManagement.PasswordManagementConstants.PasswordSelectIndexChange">
+            <summary>
+            Password selecte index change constant
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.PasswordManagement.PasswordManagementConstants.PasswordLengthChange">
+            <summary>
+            Password length
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.PasswordManagement.PasswordManagementConstants.StringValueChange">
+            <summary>
+            Generic string value change constant
+            </summary>
+        </member>
         <member name="F:PepperDash.Core.GenericTcpIpClient.DisconnectCalledByUser">
             <summary>
             Set only when the disconnect method is called.
@@ -1894,6 +2054,101 @@
             Waithandle for main thread.
             </summary>
         </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordClient.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordClient.Initialize">
+            <summary>
+            Initialize method
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordClient.GetPasswordByIndex(System.UInt16)">
+            <summary>
+            Retrieve password by index
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordClient.ValidatePassword(System.String)">
+            <summary>
+            Password validation method
+            </summary>
+            <param name="password"></param>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordClient.BuildPassword(System.String)">
+            <summary>
+            Builds the user entered passwrod string, will attempt to validate the user entered
+            password against the selected password when the length of the 2 are equal
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordClient.ClearPassword">
+            <summary>
+            Clears the user entered password and resets the LEDs
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordClient.OnBoolChange(System.Boolean,System.UInt16,System.UInt16)">
+            <summary>
+            Protected boolean change event handler
+            </summary>
+            <param name="state"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordClient.OnUshrtChange(System.UInt16,System.UInt16,System.UInt16)">
+            <summary>
+            Protected ushort change event handler
+            </summary>
+            <param name="value"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordClient.OnStringChange(System.String,System.UInt16,System.UInt16)">
+            <summary>
+            Protected string change event handler
+            </summary>
+            <param name="value"></param>
+            <param name="index"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordClient.PasswordManager_PasswordChange(System.Object,PepperDash.Core.StringChangeEventArgs)">
+            <summary>
+            If password changes while selected change event will be notifed and update the client
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="P:PepperDash.Core.PasswordManagement.PasswordClient.Password">
+            <summary>
+            Password selected
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.PasswordManagement.PasswordClient.Key">
+            <summary>
+            Password selected key
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.PasswordManagement.PasswordClient.PasswordToValidate">
+            <summary>
+            Used to build the password entered by the user
+            </summary>
+        </member>
+        <member name="E:PepperDash.Core.PasswordManagement.PasswordClient.BoolChange">
+            <summary>
+            Boolean event 
+            </summary>
+        </member>
+        <member name="E:PepperDash.Core.PasswordManagement.PasswordClient.UshrtChange">
+            <summary>
+            Ushort event
+            </summary>
+        </member>
+        <member name="E:PepperDash.Core.PasswordManagement.PasswordClient.StringChange">
+            <summary>
+            String event
+            </summary>
+        </member>
         <member name="F:PepperDash.Core.JsonToSimpl.JsonToSimplFileMaster.StringBuilderLock">
             Privates *
         </member>
@@ -3039,6 +3294,21 @@
             </summary>
             <param name="a"></param>
             <param name="b"></param>
+        </member>
+        <member name="T:PepperDash.Core.PasswordManagement.PasswordConfig">
+            <summary>
+            JSON password configuration 
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.PasswordManagement.PasswordConfig.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.PasswordManagement.PasswordConfig.password">
+            <summary>
+            Password object configured password
+            </summary>
         </member>
         <member name="T:PepperDash.Core.WebApi.Presets.User">
             <summary>
