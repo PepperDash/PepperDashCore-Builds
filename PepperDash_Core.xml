@@ -2660,7 +2660,7 @@
             The level of debug messages to print
             </summary>
         </member>
-        <member name="P:PepperDash.Core.DebugThings.DebugContextItem.DoNotStartOnNextBoot">
+        <member name="P:PepperDash.Core.DebugThings.DebugContextItem.DoNotLoadOnNextBoot">
             <summary>
             Property to tell the program not to intitialize when it boots, if desired
             </summary>
