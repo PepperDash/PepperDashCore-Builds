@@ -2655,14 +2655,14 @@
             <param name="contextKey"></param>
             <returns></returns>
         </member>
-        <member name="P:PepperDash.Core.DebugThings.DebugContextCollection.DoNotStartOnNextBoot">
-            <summary>
-            Property to tell the program not to intitialize when it boots, if desired
-            </summary>
-        </member>
         <member name="P:PepperDash.Core.DebugThings.DebugContextItem.Level">
             <summary>
             The level of debug messages to print
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.DebugThings.DebugContextItem.DoNotStartOnNextBoot">
+            <summary>
+            Property to tell the program not to intitialize when it boots, if desired
             </summary>
         </member>
         <member name="T:PepperDash.Core.JsonStandardObjects.DeviceConfig">
