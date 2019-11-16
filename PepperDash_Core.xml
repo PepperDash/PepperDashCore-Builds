@@ -33,6 +33,18 @@
             </summary>
             <param name="levelString"></param>
         </member>
+        <member name="M:PepperDash.Core.Debug.SetDoNotLoadOnNextBootFromConsole(System.String)">
+            <summary>
+            Callback for console command
+            </summary>
+            <param name="stateString"></param>
+        </member>
+        <member name="M:PepperDash.Core.Debug.SetDebugFilterFromConsole(System.String)">
+            <summary>
+            Callback for console command
+            </summary>
+            <param name="items"></param>
+        </member>
         <member name="M:PepperDash.Core.Debug.SetDebugLevel(System.Int32)">
             <summary>
             Sets the debug level
