@@ -889,6 +889,11 @@
             Generic string value change constant
             </summary>
         </member>
+        <member name="T:PepperDash.Core.GenericTcpIpClient">
+            <summary>
+            A class to handle basic TCP/IP communications with a server
+            </summary>
+        </member>
         <member name="F:PepperDash.Core.GenericTcpIpClient.DisconnectCalledByUser">
             <summary>
             Set only when the disconnect method is called.
@@ -896,7 +901,7 @@
         </member>
         <member name="M:PepperDash.Core.GenericTcpIpClient.#ctor(System.String,System.String,System.Int32,System.Int32)">
             <summary>
-            
+            Constructor
             </summary>
             <param name="key"></param>
             <param name="address"></param>
@@ -905,7 +910,7 @@
         </member>
         <member name="M:PepperDash.Core.GenericTcpIpClient.#ctor(System.String)">
             <summary>
-            
+            Constructor
             </summary>
             <param name="key"></param>
         </member>
@@ -924,6 +929,45 @@
             Handles closing this up when the program shuts down
             </summary>
         </member>
+        <member name="M:PepperDash.Core.GenericTcpIpClient.Deactivate">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PepperDash.Core.GenericTcpIpClient.Connect">
+            <summary>
+            Attempts to connect to the server
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.GenericTcpIpClient.Disconnect">
+            <summary>
+            Attempts to disconnect the client
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.GenericTcpIpClient.DisconnectClient">
+            <summary>
+            Does the actual disconnect business
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.GenericTcpIpClient.ConnectToServerCallback(Crestron.SimplSharp.CrestronSockets.TCPClient)">
+            <summary>
+            Callback method for connection attempt
+            </summary>
+            <param name="c"></param>
+        </member>
+        <member name="M:PepperDash.Core.GenericTcpIpClient.WaitAndTryReconnect">
+            <summary>
+            Disconnects, waits and attemtps to connect again
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.GenericTcpIpClient.Receive(Crestron.SimplSharp.CrestronSockets.TCPClient,System.Int32)">
+            <summary>
+            Recieves incoming data
+            </summary>
+            <param name="client"></param>
+            <param name="numBytes"></param>
+        </member>
         <member name="M:PepperDash.Core.GenericTcpIpClient.SendText(System.String)">
             <summary>
             General send method
@@ -934,14 +978,27 @@
             This is useful from console and...?
             </summary>
         </member>
+        <member name="M:PepperDash.Core.GenericTcpIpClient.SendBytes(System.Byte[])">
+            <summary>
+            Sends Bytes to the server
+            </summary>
+            <param name="bytes"></param>
+        </member>
+        <member name="M:PepperDash.Core.GenericTcpIpClient.Client_SocketStatusChange(Crestron.SimplSharp.CrestronSockets.TCPClient,Crestron.SimplSharp.CrestronSockets.SocketStatus)">
+            <summary>
+            Socket Status Change Handler
+            </summary>
+            <param name="client"></param>
+            <param name="clientSocketStatus"></param>
+        </member>
         <member name="E:PepperDash.Core.GenericTcpIpClient.BytesReceived">
             <summary>
-            
+            Fires when data is received from the server and returns it as a Byte array
             </summary>
         </member>
         <member name="E:PepperDash.Core.GenericTcpIpClient.TextReceived">
             <summary>
-            
+            Fires when data is received from the server and returns it as text
             </summary>
         </member>
         <member name="E:PepperDash.Core.GenericTcpIpClient.ConnectionChange">
@@ -972,12 +1029,12 @@
         </member>
         <member name="P:PepperDash.Core.GenericTcpIpClient.Client">
             <summary>
-            
+            The actual client class
             </summary>
         </member>
         <member name="P:PepperDash.Core.GenericTcpIpClient.IsConnected">
             <summary>
-            
+            True if connected to the server
             </summary>
         </member>
         <member name="P:PepperDash.Core.GenericTcpIpClient.UIsConnected">
@@ -987,7 +1044,7 @@
         </member>
         <member name="P:PepperDash.Core.GenericTcpIpClient.ClientStatus">
             <summary>
-            
+            Status of the socket
             </summary>
         </member>
         <member name="P:PepperDash.Core.GenericTcpIpClient.UStatus">
@@ -998,17 +1055,17 @@
         </member>
         <member name="P:PepperDash.Core.GenericTcpIpClient.ClientStatusText">
             <summary>
-            
+            Status of the socket
             </summary>
         </member>
         <member name="P:PepperDash.Core.GenericTcpIpClient.ConnectionFailure">
             <summary>
-            
+            Connection failure reason
             </summary>
         </member>
         <member name="P:PepperDash.Core.GenericTcpIpClient.AutoReconnect">
             <summary>
-            
+            If true, enables AutoConnect
             </summary>
         </member>
         <member name="P:PepperDash.Core.GenericTcpIpClient.UAutoReconnect">
@@ -1024,6 +1081,31 @@
         <member name="P:PepperDash.Core.GenericTcpIpClient.Connected">
             <summary>
             
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.TcpSshPropertiesConfig">
+            <summary>
+            Configuration properties for TCP/SSH Connections
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.Address">
+            <summary>
+            Address to connect to
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.Port">
+            <summary>
+            Port to connect to
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.Username">
+            <summary>
+            Username credential
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.Password">
+            <summary>
+            Passord credential
             </summary>
         </member>
         <member name="P:PepperDash.Core.TcpSshPropertiesConfig.BufferSize">
