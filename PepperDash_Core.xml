@@ -1083,46 +1083,6 @@
             
             </summary>
         </member>
-        <member name="T:PepperDash.Core.TcpSshPropertiesConfig">
-            <summary>
-            Configuration properties for TCP/SSH Connections
-            </summary>
-        </member>
-        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.Address">
-            <summary>
-            Address to connect to
-            </summary>
-        </member>
-        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.Port">
-            <summary>
-            Port to connect to
-            </summary>
-        </member>
-        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.Username">
-            <summary>
-            Username credential
-            </summary>
-        </member>
-        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.Password">
-            <summary>
-            Passord credential
-            </summary>
-        </member>
-        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.BufferSize">
-            <summary>
-            Defaults to 32768
-            </summary>
-        </member>
-        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.AutoReconnect">
-            <summary>
-            Defaults to true
-            </summary>
-        </member>
-        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.AutoReconnectIntervalMs">
-            <summary>
-            Defaults to 5000ms
-            </summary>
-        </member>
         <member name="P:PepperDash.Core.EthernetHelper.LanHelper">
             <summary>
             
@@ -1161,6 +1121,27 @@
         <member name="P:PepperDash.Core.EthernetHelper.DefaultGateway">
             <summary>
             
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.PropertiesConfigBase">
+            <summary>
+            Base class for all properties config classes to derive from
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.PropertiesConfigBase.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.PropertiesConfigBase.ParseSchema">
+            <summary>
+            Parses SchemaJson
+            </summary>
+            <returns>A JsonSchema</returns>
+        </member>
+        <member name="P:PepperDash.Core.PropertiesConfigBase.SchemaJson">
+            <summary>
+            The schema json string for the class
             </summary>
         </member>
         <member name="T:PepperDash.Core.SystemInfo.SystemInfoToSimpl">
@@ -1764,6 +1745,52 @@
         <member name="P:PepperDash.Core.GenericTcpIpServer.ServerStopped">
             <summary>
             Private flag to note that the server has stopped intentionally
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.TcpSshPropertiesConfig">
+            <summary>
+            Configuration properties for IP Connections
+            </summary>    
+        </member>
+        <member name="M:PepperDash.Core.TcpSshPropertiesConfig.#ctor">
+            <summary>
+            Construtor
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.Address">
+            <summary>
+            Address to connect to
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.Port">
+            <summary>
+            Port to connect to
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.Username">
+            <summary>
+            Username credential.  Defaults to ""
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.Password">
+            <summary>
+            Passord credential. Defaults to ""
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.BufferSize">
+            <summary>
+            Buffer size. Defaults to 32768
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.AutoReconnect">
+            <summary>
+            Indicates if automatic reconnection attemtps should be made.Defaults to true.
+            Uses AutoReconnectIntervalMs to determine frequency of attempts.
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.TcpSshPropertiesConfig.AutoReconnectIntervalMs">
+            <summary>
+            Defaults to 5000ms.  Requires AutoReconnect to be true.
             </summary>
         </member>
         <member name="T:PepperDash.Core.SystemInfo.ProcessorInfo">
@@ -3492,12 +3519,68 @@
         </member>
         <member name="T:PepperDash.Core.ControlPropertiesConfig">
             <summary>
-            
+            Defines the means of communicating with and controlling a device
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.ControlPropertiesConfig.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.ControlPropertiesConfig.Method">
+            <summary>
+            The control method for the device
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.ControlPropertiesConfig.ControlPortDevKey">
+            <summary>
+            The key of the device where the control port can be found
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.ControlPropertiesConfig.ControlPortNumber">
+            <summary>
+            Number of the control port on the parent device specified by ControlPortDevKey
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.ControlPropertiesConfig.ControlPortName">
+            <summary>
+            Name of the control port on the parent device specified by ControlPortDevKey
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.ControlPropertiesConfig.TcpSshProperties">
+            <summary>
+            ConfigurationProperties for IP connections
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.ControlPropertiesConfig.IrFile">
+            <summary>
+            Name of the IR file
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.ControlPropertiesConfig.IpId">
+            <summary>
+            IpId of the device
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.ControlPropertiesConfig.IpIdInt">
+            <summary>
+            uint representation of the IpId property
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.ControlPropertiesConfig.EndOfLineChar">
+            <summary>
+            Character that delimits the end of a line in multiline repsonses
             </summary>
         </member>
         <member name="P:PepperDash.Core.ControlPropertiesConfig.EndOfLineString">
             <summary>
+            String that delimits the end of a line in multiline responses.
             Defaults to Environment.NewLine;
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.ControlPropertiesConfig.DeviceReadyResponsePattern">
+            <summary>
+            Regex pattern that defines the prompt indicating a device is ready for communication
             </summary>
         </member>
     </members>
