@@ -187,6 +187,96 @@
             Waithandle for main thread.
             </summary>
         </member>
+        <member name="T:PepperDash.Core.Intersystem.XSigTokenStreamReader">
+            <summary>
+            XSigToken stream reader.
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamReader.#ctor(Crestron.SimplSharp.CrestronIO.Stream)">
+            <inheritdoc />
+            <summary>
+            XSigToken stream reader constructor.
+            </summary>
+            <param name="stream">Input stream to read from.</param>
+            <exception cref="T:System.ArgumentNullException">Stream is null.</exception>
+            <exception cref="T:System.ArgumentException">Stream cannot be read from.</exception>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamReader.#ctor(Crestron.SimplSharp.CrestronIO.Stream,System.Boolean)">
+            <summary>
+            XSigToken stream reader constructor.
+            </summary>
+            <param name="stream">Input stream to read from.</param>
+            <param name="leaveOpen">Determines whether to leave the stream open or not.</param>
+            <exception cref="T:System.ArgumentNullException">Stream is null.</exception>
+            <exception cref="T:System.ArgumentException">Stream cannot be read from.</exception>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamReader.TryReadUInt16BE(Crestron.SimplSharp.CrestronIO.Stream,System.UInt16@)">
+            <summary>
+            Reads a 16-bit unsigned integer from the specified stream using Big Endian byte order.
+            </summary>
+            <param name="stream">Input stream</param>
+            <param name="value">Result</param>
+            <returns>True if successful, otherwise false.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamReader.ReadXSigToken">
+            <summary>
+            Read XSig token from the stream.
+            </summary>
+            <returns>XSigToken</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Offset is less than 0.</exception>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamReader.ReadAllXSigTokens">
+            <summary>
+            Reads all available XSig tokens from the stream.
+            </summary>
+            <returns>XSigToken collection.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamReader.DeserializeStream``1">
+            <summary>
+            Attempts to deserialize all XSig data within the stream from the current position.
+            </summary>
+            <typeparam name="T">Type to deserialize the information to.</typeparam>
+            <returns>Deserialized object.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamReader.Dispose">
+            <summary>
+            Disposes of the internal stream if specified to not leave open.
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.Intersystem.Tokens.XSigToken">
+            <summary>
+            Represents the base class for all XSig datatypes.
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.Tokens.XSigToken.#ctor(System.Int32)">
+            <summary>
+            Constructs an XSigToken with the specified index.
+            </summary>
+            <param name="index">Index for the data.</param>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.Tokens.XSigToken.GetBytes">
+            <summary>
+            Generates the XSig bytes for the corresponding token.
+            </summary>
+            <returns>XSig byte array.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.Tokens.XSigToken.GetTokenWithOffset(System.Int32)">
+            <summary>
+            Returns a new token if necessary with an updated index based on the specified offset.
+            </summary>
+            <param name="offset">Offset to adjust the index with.</param>
+            <returns>XSigToken</returns>
+        </member>
+        <member name="P:PepperDash.Core.Intersystem.Tokens.XSigToken.Index">
+            <summary>
+            XSig 1-based index.
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.Intersystem.Tokens.XSigToken.TokenType">
+            <summary>
+            XSigToken type.
+            </summary>
+        </member>
         <member name="T:PepperDash.Core.SystemInfo.SystemInfoConstants">
             <summary>
             Constants 
@@ -1123,6 +1213,79 @@
             Defaults to 32768
             </summary>
         </member>
+        <member name="T:PepperDash.Core.Intersystem.XSigTokenStreamWriter">
+            <summary>
+            XSigToken stream writer.
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamWriter.#ctor(Crestron.SimplSharp.CrestronIO.Stream)">
+            <inheritdoc />
+            <summary>
+            XSigToken stream writer constructor.
+            </summary>
+            <param name="stream">Input stream to write to.</param>
+            <exception cref="T:System.ArgumentNullException">Stream is null.</exception>
+            <exception cref="T:System.ArgumentException">Stream cannot be written to.</exception>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamWriter.#ctor(Crestron.SimplSharp.CrestronIO.Stream,System.Boolean)">
+            <summary>
+            XSigToken stream writer constructor.
+            </summary>
+            <param name="stream">Input stream to write to.</param>
+            <param name="leaveOpen">Determines whether to leave the stream open or not.</param>
+            <exception cref="T:System.ArgumentNullException">Stream is null.</exception>
+            <exception cref="T:System.ArgumentException">Stream cannot be written to.</exception>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamWriter.WriteXSigData(PepperDash.Core.Intersystem.Serialization.IXSigSerialization)">
+            <summary>
+            Write XSig data gathered from an IXSigStateResolver to the stream.
+            </summary>
+            <param name="xSigSerialization">IXSigStateResolver object.</param>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamWriter.WriteXSigData(PepperDash.Core.Intersystem.Serialization.IXSigSerialization,System.Int32)">
+            <summary>
+            Write XSig data gathered from an IXSigStateResolver to the stream.
+            </summary>
+            <param name="xSigSerialization">IXSigStateResolver object.</param>
+            <param name="offset">Index offset for each XSigToken.</param>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamWriter.WriteXSigData(PepperDash.Core.Intersystem.Tokens.XSigToken)">
+            <summary>
+            Write XSigToken to the stream.
+            </summary>
+            <param name="token">XSigToken object.</param>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamWriter.WriteXSigData(PepperDash.Core.Intersystem.Tokens.XSigToken,System.Int32)">
+            <summary>
+            Write XSigToken to the stream.
+            </summary>
+            <param name="token">XSigToken object.</param>
+            <param name="offset">Index offset for each XSigToken.</param>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamWriter.WriteXSigData(PepperDash.Core.Intersystem.Tokens.XSigToken[])">
+            <summary>
+            Writes an array of XSigTokens to the stream.
+            </summary>
+            <param name="tokens">XSigToken objects.</param>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamWriter.WriteXSigData(System.Collections.Generic.IEnumerable{PepperDash.Core.Intersystem.Tokens.XSigToken})">
+            <summary>
+            Write an enumerable collection of XSigTokens to the stream.
+            </summary>
+            <param name="tokens">XSigToken objects.</param>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamWriter.WriteXSigData(System.Collections.Generic.IEnumerable{PepperDash.Core.Intersystem.Tokens.XSigToken},System.Int32)">
+            <summary>
+            Write an enumerable collection of XSigTokens to the stream.
+            </summary>
+            <param name="tokens">XSigToken objects.</param>
+            <param name="offset">Index offset for each XSigToken.</param>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigTokenStreamWriter.Dispose">
+            <summary>
+            Disposes of the internal stream if specified to not leave open.
+            </summary>
+        </member>
         <member name="M:PepperDash.Core.JsonToSimpl.J2SGlobal.AddMaster(PepperDash.Core.JsonToSimpl.JsonToSimplMaster)">
             <summary>
             Adds a file master.  If the master's key or filename is equivalent to any existing 
@@ -1631,6 +1794,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:PepperDash.Core.Intersystem.Serialization.IXSigSerialization">
+            <summary>
+            Interface to determine XSig serialization for an object.
+            </summary>
+        </member>
         <member name="T:PepperDash.Core.NetworkComm">
             <summary>
             Not in use
@@ -1857,6 +2025,26 @@
             </summary>
             <param name="a"></param>
             <param name="b"></param>
+        </member>
+        <member name="T:PepperDash.Core.Intersystem.Tokens.XSigTokenType">
+            <summary>
+            XSig token types.
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.Intersystem.Tokens.XSigTokenType.Digital">
+            <summary>
+            Digital signal datatype.
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.Intersystem.Tokens.XSigTokenType.Analog">
+            <summary>
+            Analog signal datatype.
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.Intersystem.Tokens.XSigTokenType.Serial">
+            <summary>
+            Serial signal datatype.
+            </summary>
         </member>
         <member name="M:PepperDash.Core.PasswordManagement.PasswordClient.#ctor">
             <summary>
@@ -3494,6 +3682,144 @@
             <summary>
             Receive Queue size must be greater than 20 or defaults to 20
             </summary>
+        </member>
+        <member name="T:PepperDash.Core.Intersystem.XSigHelpers">
+            <summary>
+            Helper methods for creating XSig byte sequences compatible with the Intersystem Communications (ISC) symbol.
+            </summary>
+            <remarks>
+            Indexing is not from the start of each signal type but rather from the beginning of the first defined signal
+            the Intersystem Communications (ISC) symbol.
+            </remarks>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.ClearOutputs">
+            <summary>
+            Forces all outputs to 0.
+            </summary>
+            <returns>Bytes in XSig format for clear outputs trigger.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.SendStatus">
+            <summary>
+            Evaluate all inputs and re-transmit any digital, analog, and permanent serail signals not set to 0.
+            </summary>
+            <returns>Bytes in XSig format for send status trigger.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.GetBytes(PepperDash.Core.Intersystem.Serialization.IXSigSerialization)">
+            <summary>
+            Get bytes for an IXSigStateResolver object.
+            </summary>
+            <param name="xSigSerialization">XSig state resolver.</param>
+            <returns>Bytes in XSig format for each token within the state representation.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.GetBytes(PepperDash.Core.Intersystem.Serialization.IXSigSerialization,System.Int32)">
+            <summary>
+            Get bytes for an IXSigStateResolver object, with a specified offset.
+            </summary>
+            <param name="xSigSerialization">XSig state resolver.</param>
+            <param name="offset">Offset to which the data will be aligned.</param>
+            <returns>Bytes in XSig format for each token within the state representation.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.GetBytes(System.Int32,System.Boolean)">
+            <summary>
+            Get bytes for a single digital signal.
+            </summary>
+            <param name="index">1-based digital index</param>
+            <param name="value">Digital data to be encoded</param>
+            <returns>Bytes in XSig format for digtial information.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.GetBytes(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Get bytes for a single digital signal.
+            </summary>
+            <param name="index">1-based digital index</param>
+            <param name="offset">Index offset.</param>
+            <param name="value">Digital data to be encoded</param>
+            <returns>Bytes in XSig format for digtial information.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.GetBytes(System.Int32,System.Boolean[])">
+            <summary>
+            Get byte sequence for multiple digital signals.
+            </summary>
+            <param name="startIndex">Starting index of the sequence.</param>
+            <param name="values">Digital signal value array.</param>
+            <returns>Byte sequence in XSig format for digital signal information.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.GetBytes(System.Int32,System.Int32,System.Boolean[])">
+            <summary>
+            Get byte sequence for multiple digital signals.
+            </summary>
+            <param name="startIndex">Starting index of the sequence.</param>
+            <param name="offset">Index offset.</param>
+            <param name="values">Digital signal value array.</param>
+            <returns>Byte sequence in XSig format for digital signal information.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.GetBytes(System.Int32,System.UInt16)">
+            <summary>
+            Get bytes for a single analog signal.
+            </summary>
+            <param name="index">1-based analog index</param>
+            <param name="value">Analog data to be encoded</param>
+            <returns>Bytes in XSig format for analog signal information.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.GetBytes(System.Int32,System.Int32,System.UInt16)">
+            <summary>
+            Get bytes for a single analog signal.
+            </summary>
+            <param name="index">1-based analog index</param>
+            <param name="offset">Index offset.</param>
+            <param name="value">Analog data to be encoded</param>
+            <returns>Bytes in XSig format for analog signal information.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.GetBytes(System.Int32,System.UInt16[])">
+            <summary>
+            Get byte sequence for multiple analog signals.
+            </summary>
+            <param name="startIndex">Starting index of the sequence.</param>
+            <param name="values">Analog signal value array.</param>
+            <returns>Byte sequence in XSig format for analog signal information.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.GetBytes(System.Int32,System.Int32,System.UInt16[])">
+            <summary>
+            Get byte sequence for multiple analog signals.
+            </summary>
+            <param name="startIndex">Starting index of the sequence.</param>
+            <param name="offset">Index offset.</param>
+            <param name="values">Analog signal value array.</param>
+            <returns>Byte sequence in XSig format for analog signal information.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.GetBytes(System.Int32,System.String)">
+            <summary>
+            Get bytes for a single serial signal.
+            </summary>
+            <param name="index">1-based serial index</param>
+            <param name="value">Serial data to be encoded</param>
+            <returns>Bytes in XSig format for serial signal information.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.GetBytes(System.Int32,System.Int32,System.String)">
+            <summary>
+            Get bytes for a single serial signal.
+            </summary>
+            <param name="index">1-based serial index</param>
+            <param name="offset">Index offset.</param>
+            <param name="value">Serial data to be encoded</param>
+            <returns>Bytes in XSig format for serial signal information.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.GetBytes(System.Int32,System.String[])">
+            <summary>
+            Get byte sequence for multiple serial signals.
+            </summary>
+            <param name="startIndex">Starting index of the sequence.</param>
+            <param name="values">Serial signal value array.</param>
+            <returns>Byte sequence in XSig format for serial signal information.</returns>
+        </member>
+        <member name="M:PepperDash.Core.Intersystem.XSigHelpers.GetBytes(System.Int32,System.Int32,System.String[])">
+            <summary>
+            Get byte sequence for multiple serial signals.
+            </summary>
+            <param name="startIndex">Starting index of the sequence.</param>
+            <param name="offset">Index offset.</param>
+            <param name="values">Serial signal value array.</param>
+            <returns>Byte sequence in XSig format for serial signal information.</returns>
         </member>
         <member name="F:PepperDash.Core.GenericSecureTcpIpClient_ForServer.ConnectionHasHungCallback">
             <summary>
