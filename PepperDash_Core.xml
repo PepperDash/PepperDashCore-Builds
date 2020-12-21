@@ -1854,9 +1854,20 @@
             Constructor
             </summary>
         </member>
-        <member name="F:PepperDash.Core.Debug.FilePathPrefix">
+        <member name="T:PepperDash.Core.Debug">
+            <summary>
+            Contains debug commands for use in various situations
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.Debug.OldFilePathPrefix">
             <summary>
             Describes the folder location where a given program stores it's debug level memory. By default, the
+            file written will be named appNdebug where N is 1-10.
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.Debug.NewFilePathPrefix">
+            <summary>
+            Describes the new folder location where a given program stores it's debug level memory. By default, the
             file written will be named appNdebug where N is 1-10.
             </summary>
         </member>
@@ -1865,7 +1876,7 @@
             The name of the file containing the current debug settings.
             </summary>
         </member>
-        <member name="F:PepperDash.Core.Debug.ExcludeAllMode">
+        <member name="F:PepperDash.Core.Debug._excludeAllMode">
             <summary>
             When true, the IncludedExcludedKeys dict will contain keys to include. 
             When false (default), IncludedExcludedKeys will contain keys to exclude.
@@ -1941,6 +1952,12 @@
             Logs to Console when at-level, and all messages to error log, including device key			
             </summary>
         </member>
+        <member name="M:PepperDash.Core.Debug.Console(System.UInt32,PepperDash.Core.IKeyed,PepperDash.Core.Debug.ErrorLogLevel,System.String,System.Object[])">
+            <summary>
+            Prints message to console if current debug level is equal to or higher than the level of this message. Always sends message to Error Log.
+            Uses CrestronConsole.PrintLine.
+            </summary>
+        </member>
         <member name="M:PepperDash.Core.Debug.Console(System.UInt32,PepperDash.Core.Debug.ErrorLogLevel,System.String,System.Object[])">
             <summary>
             Logs to Console when at-level, and all messages to error log
@@ -1952,9 +1969,6 @@
             or above the level provided, then the output will be written to both console and the log. Otherwise
             it will only be written to the log.
             </summary>
-            <param name="level"></param>
-            <param name="format"></param>
-            <param name="items"></param>
         </member>
         <member name="M:PepperDash.Core.Debug.ConsoleWithLog(System.UInt32,PepperDash.Core.IKeyed,System.String,System.Object[])">
             <summary>
@@ -1962,10 +1976,6 @@
             or above the level provided, then the output will be written to both console and the log. Otherwise
             it will only be written to the log.
             </summary>
-            <param name="level"></param>
-            <param name="dev"></param>
-            <param name="format">String.format string</param>
-            <param name="items">Parameters for substitution in the format string.</param>
         </member>
         <member name="M:PepperDash.Core.Debug.LogError(PepperDash.Core.Debug.ErrorLogLevel,System.String)">
             <summary>
@@ -1992,6 +2002,21 @@
         <member name="M:PepperDash.Core.Debug.GetMemoryFileName">
             <summary>
             Helper to get the file path for this app's debug memory
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.Debug.Level">
+            <summary>
+            Debug level to set for a given program.
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.Debug.DoNotLoadOnNextBoot">
+            <summary>
+            When this is true, the configuration file will NOT be loaded until triggered by either a console command or a signal
+            </summary>
+        </member>
+        <member name="P:PepperDash.Core.Debug.PepperDashCoreVersion">
+            <summary>
+            Version for the currently loaded PepperDashCore dll
             </summary>
         </member>
         <member name="M:PepperDash.Core.Config.PortalConfigReader.ReadAndMergeFileIfNecessary(System.String,System.String)">
@@ -2398,9 +2423,19 @@
             
             </summary>
         </member>
-        <member name="F:PepperDash.Core.DebugThings.DebugContextCollection.DeviceDebugSettingsLock">
+        <member name="T:PepperDash.Core.DebugThings.DebugContextCollection">
+            <summary>
+            Class to persist current Debug settings across program restarts
+            </summary>
+        </member>
+        <member name="F:PepperDash.Core.DebugThings.DebugContextCollection._deviceDebugSettingsLock">
             <summary>
             To prevent threading issues with the DeviceDebugSettings collection
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.DebugThings.DebugContextCollection.#ctor">
+            <summary>
+            Default constructor
             </summary>
         </member>
         <!-- Badly formed XML comment ignored for member "M:PepperDash.Core.DebugThings.DebugContextCollection.SetLevel(System.String,System.Int32)" -->
@@ -2429,6 +2464,11 @@
         <member name="P:PepperDash.Core.DebugThings.DebugContextCollection.DeviceDebugSettings">
             <summary>
             Collection of the debug settings for each device where the dictionary key is the device key
+            </summary>
+        </member>
+        <member name="T:PepperDash.Core.DebugThings.DebugContextItem">
+            <summary>
+            Contains information about 
             </summary>
         </member>
         <member name="P:PepperDash.Core.DebugThings.DebugContextItem.Level">
