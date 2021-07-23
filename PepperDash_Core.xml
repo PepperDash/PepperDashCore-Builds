@@ -413,6 +413,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:PepperDash.Core.Device.Initialize">
+            <summary>
+            Call this method to start communications with a device. Overriding classes do not need to call base.Initialize()
+            </summary>
+        </member>
         <member name="M:PepperDash.Core.Device.OnFalse(System.Object,System.Action)">
             <summary>
             Helper method to check object for bool value false and fire an Action method
@@ -1014,11 +1019,6 @@
             Represents a device with stream debugging capablities
             </summary>
         </member>
-        <member name="F:PepperDash.Core.GenericUdpServer.MessageQueue">
-            <summary>
-            Queue to temporarily store received messages with the source IP and Port info
-            </summary>
-        </member>
         <member name="M:PepperDash.Core.GenericUdpServer.#ctor">
             <summary>
             Constructor for S+. Make sure to set key, address, port, and buffersize using init method
@@ -1069,12 +1069,6 @@
             </summary>
             <param name="server"></param>
             <param name="numBytes"></param>
-        </member>
-        <member name="M:PepperDash.Core.GenericUdpServer.DequeueEvent">
-            <summary>
-            This method gets spooled up in its own thread an protected by a CCriticalSection to prevent multiple threads from running concurrently.
-            It will dequeue items as they are enqueued automatically.
-            </summary>
         </member>
         <member name="M:PepperDash.Core.GenericUdpServer.SendText(System.String)">
             <summary>
