@@ -2335,6 +2335,34 @@
             Receive Queue size must be greater than 20 or defaults to 20
             </summary>
         </member>
+        <member name="M:PepperDash.Core.QscCoreDoubleTcpIpClient.#ctor">
+            <summary>
+            Default constuctor for S+
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.QscCoreDoubleTcpIpClient.Connect(System.String,System.String,System.Int32,System.String,System.Int32,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="masterAddress"></param>
+            <param name="masterPort"></param>
+            <param name="slaveAddress"></param>
+            <param name="slavePort"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="pollingIntervalSeconds"></param>
+        </member>
+        <member name="M:PepperDash.Core.QscCoreDoubleTcpIpClient.Disconnect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PepperDash.Core.QscCoreDoubleTcpIpClient.SendText(System.String)">
+            <summary>
+            Does not include line feed
+            </summary>
+        </member>
         <member name="T:PepperDash.Core.IBasicCommunicationWithStreamDebugging">
             <summary>
             Represents a device that implements IBasicCommunication and IStreamDebugging
